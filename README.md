@@ -33,3 +33,16 @@ e [java aqui](https://openjdk.org)
 - para linux abra o terminal e digite sudo apt install maven -y && sudo apt install openjdk-18-jdk
 
 
+<br/>
+
+## rodando o projeto
+### instalnado dependencias
+na pasta raiz instele as dependencias e bibliotecas do node.js necessarias para rodar o vite e o react
+usando o comando <b>npm install</b>
+### rodando o projeto
+para subir o projeto você pode rodar npm run dev ou usar os mecanismos auxiliares que sua ide disponibiliza
+
+não esqueça de subir seu container docker
+
+<h1>God hacking ! :)</h1>
+
