@@ -1,6 +1,7 @@
 import HeaderComponent from "./header-component.jsx";
 import {Button, Container, Form, Row} from "react-bootstrap";
 import {useState} from "react";
+import MemberService from "../../service/member-client.jsx";
 
 
 let SingonComponent = () => {
@@ -56,7 +57,7 @@ let SingonComponent = () => {
                 return <Form.Control key={index} type={input.type} id={input.id} name={input.name} placeholder={input.placeholder} onChange={formHandler}/>
             })}
 
-            <Button name="sendCadastrar" className="button" onClick={() => {console.log(user)}}>Cadastrar</Button>
+            <Button name="sendCadastrar" className="button" onClick={() => {MemberService.createNewMember(user)}}>Cadastrar</Button>
             <Button name="sendCancelar" className="button">Cancelar</Button>
             </Form>
 

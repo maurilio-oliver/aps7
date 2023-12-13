@@ -6,8 +6,11 @@ const service = axios.create({
 })
 
 const MemberService = {
-    createNewMember : () => {
-
+    createNewMember : (member) => {
+        service.post("/member/create-new", member).then(response => {
+            console.log(response.data)
+        })
 
     }
 }
+export default MemberService
