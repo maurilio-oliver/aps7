@@ -1,18 +1,17 @@
 import HeaderComponent from "./header-component.jsx";
 import {Button, Container, Form, Row} from "react-bootstrap";
 import {useState} from "react";
-import MemberService from "../../service/member-client.jsx";
 
 
 let SingonComponent = () => {
 
     let [user, setUser] = useState({})
+    let [cadasterModule, setCadasterModule] = useState(null)
     const formHandler = (e) =>{
         let data = user
         data[e.target.id] = data[e.target.id] == null ? {}: data[e.target.id]
         data[e.target.id][e.target.name] = e.target.value
         setUser(data)
-        console.log(data)
 
     }
 
@@ -23,6 +22,14 @@ let SingonComponent = () => {
                 <h1 className={"text-center"}>Cadastro</h1>
             </Row>
             <Form>
+                { cadasterModule == null ? <>
+                    <Button onClick={() => {
+                        setCadasterModule(true)
+                    }}> Cliente </Button>
+                    <Button onClick={() => {
+                        setCadasterModule(false)
+                    }}> vendedor </Button>
+                    </> : cadasterModule == true ? <>
                 <Form.Group>
             <h2>Dados básicos</h2>
 
@@ -57,8 +64,9 @@ let SingonComponent = () => {
                 return <Form.Control key={index} type={input.type} id={input.id} name={input.name} placeholder={input.placeholder} onChange={formHandler}/>
             })}
 
-            <Button name="sendCadastrar" className="button" onClick={() => {MemberService.createNewMember(user)}}>Cadastrar</Button>
-            <Button name="sendCancelar" className="button">Cancelar</Button>
+            <Button name="sendCadastrar" className="button" onClick={() => {console.log(user)}}>Cadastrar</Button>
+            <Button name="sendCancelar" className="button" onClick={() => {setCadasterModule(null)}}>Cancelar</Button>
+                </> : <>modulo do vendendor</>}
             </Form>
 
         </Container>

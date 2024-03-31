@@ -9,7 +9,7 @@ function Test() {
 var RoutesPath = () => {
     return (<BrowserRouter>
         <Routes>
-            <Route path={"/"} element={ <ProductComponent/> }/>
+            <Route path={"/home"} element={ <HomePage/> }/>
             <Route path={"/home/cadastro"} element={<SingonComponent/>}/>
             <Route path={"/home/entrar"}/>
             <Route path={"/produto/:id"} element={<ProductComponent/>}/>
