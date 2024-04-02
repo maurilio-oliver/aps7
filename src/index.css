@@ -1,0 +1,8 @@
+#hover-effect:hover {
+    /*background-color: #d3d3d3;*/
+    background: #efeeee;
+    border: solid #ffffff 10px;
+}
+.as{
+    background-color: linear-gradient(180deg, #020202, #0022ff);
+}

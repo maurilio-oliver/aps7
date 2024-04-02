@@ -2,7 +2,7 @@ import {Col, Container, Image, Row} from "react-bootstrap";
 
 let FooterComponent = () => {
     return <footer>
-        <Row></Row>
+
             <Row>
                 <Col sm={3}>
                         <Row sm={8}>

@@ -3,9 +3,7 @@ import HomePage from "../container/home-page.jsx";
 import ProductComponent from "../container/product-component.jsx";
 import SingonComponent from "../container/singon-component.jsx";
 
-function Test() {
-    return (<>Test</>)
-}
+
 var RoutesPath = () => {
     return (<BrowserRouter>
         <Routes>
