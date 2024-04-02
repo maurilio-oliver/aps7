@@ -4,40 +4,50 @@ import FooterComponent from "./footer-component.jsx";
 import ProductService from "../../service/product-service.js";
 import {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
-
-
-function getPrincipalProduct() {
-    let data = {}
-
-    return data
-}
+import ObjectsHelper from "../config/objects-helper.js";
 
 let ProductComponent = () => {
     const {id} = useParams()
-    console.log(id)
+    let [state, setState] = useState({})
     let [product, setProduct] = useState({})
+    let [indicationList, setIndication] = useState([])
+    
+
+
+
+
+
     useEffect(() => {
+        function def2(){
+            ProductService.getRecommender([]).then( response => {
+                setIndication(response)
+                setState({...state.index,index:0})
 
-        ProductService.getProducyById(id).then(async response => {
-            setProduct(response.data)
-            console.log(response.data)
+            })
+        }
+        function def(){
+           ProductService.getProducyById(1).then( response => {
+                    setProduct(response)
+           })
 
-        })
-    }, [])
+       }
+
+       def()
+       def2()
+
+    },[])
 
 
-    let indication = [
-        {id: 1, name: "calça preta social", price: 199.20, imagePath: "/srce/image"},
-        {id: 2, name: "Camiseta listrada bege oversize", price: 69.99, imagePath: "/srce/image/image.png"},
-        {id: 3, name: "Casaco de pelucia merrom", price: 159.00, imagePath: "/srce/imagepath"},
-        {id: 4, name: "Cropped ombro a ombro preto", price: 99.00, imagePath: "/srce/image/image.png"}
-    ]
+
+
+
     return (<div className={"container"}>
 
 
         <HeaderComponent/>
-        {product && product.id !== null ?<>
+        {ObjectsHelper.nonNull(product)? <>
         <div className="body-categorias produto">
+
             <div className="roll">
 
 
@@ -49,7 +59,7 @@ let ProductComponent = () => {
 
 
                     <FormSelect onChange={(event) => {
-                        console.log(event.target)
+                      // aqui  console.log(event.target)
                     }}>
                         <option disabled={true}>Selecione o tamanho</option>
                         {[36, 38, 40, 42, 44, 46].map((value, index) => {
@@ -65,6 +75,8 @@ let ProductComponent = () => {
                                         if (event.target.value > 10) {
                                             alert("valor não diponivel")
                                             event.target.value = 10
+                                        } else if (event.target.value < 0) {
+                                            event.target.value = 0
                                         }
                                     }}/>
                                 </Col>
@@ -90,25 +102,38 @@ let ProductComponent = () => {
                 <h2>Produtos relacionados</h2>
                 <p>Veja mais</p>
             </div>
-            <Carousel>
-                {indication.map((product, index) => {
+            <Carousel slide={false}
+            onSelect={(e) => {
+                let index = ((indicationList.length - 3) >= e) ? e : 0
+                setState({...state.index, index})
+
+            }}
+            activeIndex={state.index}
+            inlist={indicationList}
+            >
+                {indicationList.map((product, index) => {
                     return (
                         <Carousel.Item key={index}>
-                            <Card>
-                                <Card.Header>{product.name}</Card.Header>
-                                <Card.Body><CardImg src={product.imagePath}></CardImg></Card.Body>
-                                <Card.Footer><>R$ {product.price}</>
-                                </Card.Footer>
-                            </Card>
+                            <div className="d-flex justify-content-between">
+                                {indicationList.slice(state.index, state.index + 3).map((product, idx) => (
+                                    <Card key={idx}>
+                                        <Card.Header>{product.name}</Card.Header>
+                                        <Card.Body><CardImg sizes={"small"} src={product.imagePath} /></Card.Body>
+                                        <Card.Footer>R$ {product.price}</Card.Footer>
+                                    </Card>
+                                ))}
+                            </div>
                         </Carousel.Item>
                     )
                 })}
-
             </Carousel>
 
 
         </div>
-        </> : <h1>produto não encontrado</h1>}
+        </>
+            : <><h1>produto não encontrado</h1>
+
+            </>}
 
 
 
