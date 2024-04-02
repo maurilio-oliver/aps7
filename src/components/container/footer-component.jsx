@@ -1,20 +1,27 @@
-import {Col, Container, Row} from "react-bootstrap";
+import {Col, Container, Image, Row} from "react-bootstrap";
 
 let FooterComponent = () => {
     return <footer>
-        <Container>
+        <Row></Row>
             <Row>
-                <Col>
-                    <div className="rodape-1">
+                <Col sm={3}>
+                        <Row sm={8}>
+
                         <h3>Baixe o nosso app</h3>
                         <p>Estamos nas melhores plataformas</p>
-                        <div className="apps">
-                            <img src="/loja-virtual/assets/img/google-play.png" alt="" />
-                            <img src="/loja-virtual/assets/img/app-store.png" alt=""/>
-                        </div>
-                    </div>
+                        </Row>
+                            <Row sm={4}>
+                                <Col sm={6}>
+                            <Image width={"100%"} src="/src/img/google-play.png" alt="" />
+                                </Col>
+                                <Col sm={6}>
+                            <Image width={"100%"} src="/src/img/app-store.png" alt=""/>
+                                </Col>
+                            </Row>
+
+
                 </Col>
-                <Col>
+                <Col sm={3}>
                     <div className="rodape-2">
                         <h3>Institucional</h3>
                         <ul>
@@ -24,7 +31,7 @@ let FooterComponent = () => {
                         </ul>
                     </div>
                 </Col>
-                <Col>
+                <Col sm={3}>
                     <div className="rodape-3">
                         <h3>Serviços</h3>
                         <ul>
@@ -35,7 +42,7 @@ let FooterComponent = () => {
                     </div>
                 </Col>
             </Row>
-        </Container>
+
     </footer>
 }
 

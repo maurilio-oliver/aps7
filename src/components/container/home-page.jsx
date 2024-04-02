@@ -7,7 +7,7 @@ import SingonComponent from "./singon-component.jsx";
 import {Container, Row, Col, Image, Button, NavLink} from "react-bootstrap";
 
 function HomePage() {
-    return (<>
+    return (<Container>
 
         <div className="container">
 
@@ -21,12 +21,12 @@ function HomePage() {
         <div className="banner">
             <Container>
                 <Row>
-                    <Col md={9}>
-
+                    <Col md={9} style={{background:"blue"}}>
+                        <h1>Content !</h1>
                     </Col>
-                    <Col md={3} className="coluna1">
+                    <Col md={1}></Col>
+                    <Col md={2} style={{background:"red"}}>
                         <h1>A melhor peça para você</h1>
-                        <br/>
                         <Button href="#">Veja nossas recomendações &#8594;</Button>
                     </Col>
                 </Row>
@@ -43,7 +43,7 @@ function HomePage() {
         <div className="container-fluid">
             <FooterComponent/>
         </div>
-    </>)
+    </Container>)
 
 }
 
