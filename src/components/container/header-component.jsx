@@ -1,4 +1,5 @@
 import {Col, Container, FigureImage, Image, Navbar, NavDropdown, NavLink, Row} from "react-bootstrap";
+import {Link} from "react-router-dom";
 
 
 const HeaderComponent = () => {
@@ -6,8 +7,9 @@ const HeaderComponent = () => {
 
         <Row>
             <Col sm={1}>
-
+                <Link to={"/home"}>
                 <Image src="/src/img/icon.png" alt="lojatcc" width={"100%"}/>
+                </Link>
 
             </Col>
             <Col sm={7}/>

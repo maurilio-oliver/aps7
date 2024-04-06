@@ -11,7 +11,7 @@ let FooterComponent = () => {
                         <p>Estamos nas melhores plataformas</p>
                         </Row>
                             <Row sm={4}>
-                                <Col sm={6}>
+                                <Col sm={6  }>
                             <Image width={"100%"} src="/src/img/google-play.png" alt="" />
                                 </Col>
                                 <Col sm={6}>
@@ -21,7 +21,7 @@ let FooterComponent = () => {
 
 
                 </Col>
-                <Col sm={3}>
+                <Col sm={2}>
                     <div className="rodape-2">
                         <h3>Institucional</h3>
                         <ul>
@@ -31,7 +31,7 @@ let FooterComponent = () => {
                         </ul>
                     </div>
                 </Col>
-                <Col sm={3}>
+                <Col sm={2}>
                     <div className="rodape-3">
                         <h3>Serviços</h3>
                         <ul>
