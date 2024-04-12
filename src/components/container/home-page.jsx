@@ -33,7 +33,9 @@ function HomePage() {
             </Row>
                 <Row>
                     <Col md={9}>
+
                         <Row>
+                            <h1>Popular</h1>
                         <Carousel slide={false}
                                   onSelect={(e) => {
                                       let index = ((state.products.length - 3) >= e) ? e : 0
@@ -61,6 +63,7 @@ function HomePage() {
                         </Carousel>
                         </Row>
                         <Row>
+                            <h1>Tendencia</h1>
                             <Carousel slide={false}
                                       onSelect={(e) => {
                                           let index = ((state.products.length - 3) >= e) ? e : 0
@@ -88,6 +91,7 @@ function HomePage() {
                             </Carousel>
                         </Row>
                         <Row>
+                            <h1>Para você</h1>
                             <Carousel slide={false}
                                       onSelect={(e) => {
                                           let index = ((state.products.length - 3) >= e) ? e : 0

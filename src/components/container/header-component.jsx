@@ -45,8 +45,8 @@ const HeaderComponent = () => {
                     <Navbar.Collapse>
                         <NavDropdown title={"menu"} style={{}}>
                             {[{
-                                text: false ? "login" : "perfil",
-                                link: false ? "/perfil/" : "/home/cadastro"
+                                text: true ? "login" : "perfil",
+                                link: true ? "/home/login" : "/home/cadastro"
                             }, {text: "carrinho"}].map((items, index) => {
                                 return (
                                     <NavDropdown.Item key={index} href={items.link}>

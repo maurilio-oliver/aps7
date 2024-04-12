@@ -11,7 +11,7 @@ let FooterComponent = () => {
                         <p>Estamos nas melhores plataformas</p>
                         </Row>
                             <Row sm={4}>
-                                <Col sm={6  }>
+                                <Col sm={6}>
                             <Image width={"100%"} src="/src/img/google-play.png" alt="" />
                                 </Col>
                                 <Col sm={6}>
