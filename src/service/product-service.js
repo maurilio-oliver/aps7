@@ -1,11 +1,7 @@
 import axios from "axios";
 import returnPromiseComAtraso from "./helper-developer.js";
 
-const service = axios.create({
-    baseURL: 'http://localhost:8080',
-    timeout: 5000,
-})
-
+3
 
 const ProductService = {
      getProducyById : (productId) => {
